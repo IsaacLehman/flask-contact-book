@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }} - Contacts
+{% endblock %}
+
+{% block content %}
+<div class="container pt-2 pb-2">
+    <h1 class="display-3">Your Contacts</h1>
+    <table id="user-table" class="table table-hover">
+        <tr> <!--headers-->
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        {% for c in contacts %}
+        <tr> <!--entries-->
+            <td>{{ c.first.capitalize() }}</td>
+            <td>{{ c.last.capitalize() }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.address }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="container pt-2 pb-2">
+    <a href="/addcontact/"><span class="btn btn-primary">Add New Contact</span></a>
+</div>
+{% endblock %}

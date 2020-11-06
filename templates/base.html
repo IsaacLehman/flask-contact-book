@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Contacts{% endblock %}</title>
+    <!-- define a block for bootstrap imports -->
+    {% block bootstrap %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock %}
+    <!-- define a block for custom css -->
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% endblock %}
+    {% block header_scripts %}
+    {% endblock %}
+    <link rel="icon"
+        type="image/png"
+        href="https://freepngimg.com/download/spoon/89626-fork-restaurant-food-photography-icons-computer-monochrome.png">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+    <footer class="footer fixed-bottom p-1 bg-light">
+        <div class="container">
+            <span class="text-muted">&#169; 2020 Isaac Lehman </span>
+        </div>
+        {% block footer_scripts %}
+        {% endblock %}
+    </footer>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }} - Add Contact
+{% endblock %}
+
+{% block content %}
+<div class="container pt-2">
+    <h1 class="display-3">Add New Contact</h1>
+    <hr>
+    <form action="/addcontact/" method="post">
+        <h4>Both of the following are required:</h4>
+        <div class="form-group">
+            <label for="first">First Name</label>
+            <input class="form-control" type="text" name="first" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="last">Last Name</label>
+            <input class="form-control" type="text" name="last" value="" required>
+        </div>
+        <h4>One of the following is required:</h4>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" value="">
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input class="form-control" type="text" name="address" value="">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Add New Contact">
+        </div>
+        <a href="/contacts/" class="btn btn-primary">View Contacts</a>
+    </form>
+</div>
+
+{% endblock %}
